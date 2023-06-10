@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Collection;
+import java.util.List;
+
 @Entity
 @Table(name = "appointment")
 public class Appointment {
@@ -34,6 +37,14 @@ public class Appointment {
     @JsonIgnoreProperties(value = {"Appointment", "handler","hibernateLazyInitializer"}, allowSetters = true)
     @JoinColumn(name = "doctorId")
     private Doctor doctor;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "appointments_services",
+            joinColumns = @JoinColumn(name = "appointment_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id")
+    )
+    private List<Service> services;
 
     public Appointment() {
     }
