@@ -38,13 +38,16 @@ public class Appointment {
     @JoinColumn(name = "doctorId")
     private Doctor doctor;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "appointments_services",
-            joinColumns = @JoinColumn(name = "appointment_id"),
-            inverseJoinColumns = @JoinColumn(name = "service_id")
-    )
-    private List<Service> services;
+//    @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY)
+//    private Collection<Service>  services;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "appointments_services",
+//            joinColumns = @JoinColumn(name = "appointment_id"),
+//            inverseJoinColumns = @JoinColumn(name = "service_id")
+//    )
+//    private Collection<Service> services;
 
     public Appointment() {
     }

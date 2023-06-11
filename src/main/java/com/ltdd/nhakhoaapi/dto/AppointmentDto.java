@@ -1,7 +1,11 @@
 package com.ltdd.nhakhoaapi.dto;
 
 
+import com.ltdd.nhakhoaapi.model.Service;
 import lombok.*;
+
+import java.util.Collection;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,6 +25,8 @@ public class AppointmentDto {
     private Long patientId;
 
     private Long doctorId;
+
+ //   private List<Service> services;
 
 
 }

@@ -12,12 +12,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class PatientDto {
 
-
     private String name;
 
     private String email;
 
-    private long phone;
+    private Long phone;
 
     private String idCard;
 

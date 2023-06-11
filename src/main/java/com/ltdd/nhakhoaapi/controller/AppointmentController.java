@@ -5,16 +5,17 @@ import com.ltdd.nhakhoaapi.dto.AppointmentDto;
 import com.ltdd.nhakhoaapi.model.Appointment;
 import com.ltdd.nhakhoaapi.model.Doctor;
 import com.ltdd.nhakhoaapi.model.Patient;
+import com.ltdd.nhakhoaapi.model.Service;
 import com.ltdd.nhakhoaapi.service.AppointmentService;
 import com.ltdd.nhakhoaapi.service.DoctorService;
 import com.ltdd.nhakhoaapi.service.PatientService;
+import com.ltdd.nhakhoaapi.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -30,8 +31,10 @@ public class AppointmentController {
     @Autowired
     private PatientService patientService;
 
+
     @PostMapping("/newAppointment")
     public ResponseEntity<?> newAppointment(@RequestBody AppointmentDto appointmentDto) {
+
         Doctor doctor = doctorService.findByDoctorId(appointmentDto.getDoctorId());
         Patient patient = patientService.findByPatientId(appointmentDto.getPatientId());
         Appointment appointment = new Appointment();

@@ -25,8 +25,8 @@ public class Patient {
     @Email(message = "Email không hợp lệ")
     private String email;
 
-    @Column(name = "phone", length = 125)
-    private long phone;
+    @Column(name = "phone")
+    private Long phone;
 
     @Column(name = "id_card")
     private String idCard;
